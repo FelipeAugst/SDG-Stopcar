@@ -3,7 +3,7 @@ import tkinter as tk
 from GUI import menuprincipal,menuadm
 
 def CheckaLogin(janela,usuario,senha):
-   if usuario == "User"and senha == "1,2,3":
+   if usuario == "User"and senha == "123":
    	menuprincipal.menu(janela)
    elif usuario== "Admin" and senha== "102030":
    	menuadm.configuracoes(janela)
@@ -15,7 +15,7 @@ def teladelogin(janela):
 	janela.destroy()
 	login = tk.Tk()
 	login.title("SDG-Tela De Login")
-	login.geometry("700x500")
+	login.geometry("900x700")
 	tk.Label(login,text="Stopcar-SDG",background= "white",foreground= "#8c0000",font= "Arial 10").pack()
 	bg= tk.PhotoImage(file= "Asset/ferrari.png")
 	tk.Label(login,image= bg,background="white").pack()

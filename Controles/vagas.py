@@ -2,7 +2,7 @@ import json
 from tkinter import messagebox
 import datetime as dt
 def ocupavaga(porte= None):
-	with open("vagas.json","r") as vagas:
+	with open("Databases/vagas.json","r") as vagas:
 		vagasdisponiveis= vagas.read()
 	listavagas= json.loads(vagasdisponiveis)
 	if not porte in listavagas:
@@ -13,22 +13,22 @@ def ocupavaga(porte= None):
 	else:
 		a= listavagas[porte][0]
 		listavagas[porte].pop(0)
-		with open("vagas.json","w") as vagasrestantes:
+		with open("Databases/vagas.json","w") as vagasrestantes:
 			json.dump(listavagas,vagasrestantes)
 		return a
 		
 		
 def liberavaga(vaga,porte):
-	with open("vagas.json","r") as vagas:
+	with open("Databases/vagas.json","r") as vagas:
 		vagasdisponiveis= vagas.read()
 	listavagas= json.loads(vagasdisponiveis)
 	listavagas[porte].append(vaga)
 	listavagas[porte].sort()
-	with open("vagas.json","w") as vagas:
+	with open("Databases/vagas.json","w") as vagas:
 		json.dump(listavagas,vagas)
 		
 def resetvagas():		
-	with open("vagas.json","w") as modelo:
+	with open("Databases/vagas.json","w") as modelo:
 		listavagas= {}
 		listavagas["pequeno"]= [x for x in 				range(1,26)]
 		listavagas["medio"]= [x for x in range(1,26)]
@@ -41,14 +41,14 @@ def resetdados():
 		if not answer:
 			return 0
 		resetvagas()
-		with open("relatorio.json","w") as relatorio:
+		with open("Databases/relatorio.json","w") as relatorio:
 			reseta= {}
 			json.dump(reseta,relatorio)
 			messagebox.showinfo(title="Resetado com sucesso",message= "Dados Apagados")
 
 
 def calculapreco(porte,data,hora,data2,hora2):
-	with open("tabela.json","r") as tabela:
+	with open("Databases/tabela.json","r") as tabela:
 		temp= tabela.read()
 		preco= json.loads(temp)
 	formatdata= data.split("/")

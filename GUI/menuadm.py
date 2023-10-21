@@ -15,7 +15,7 @@ def alterapreco(janela):
 	carromain=tk.Label(altera,image= bg,background="white").pack()
 	veiculo = tk.StringVar(altera)
 	altera.title("Alterar preço")
-	altera.geometry("700x500")
+	altera.geometry("900x700")
 	#im= tk.PhotoImage(file= "reg.png", master= altera)
 	titulo= tk.Label(altera,text= "Escolha o tipo de veiculo:",background="white",foreground= "blue").pack()
 	veiculos= tk.OptionMenu(altera,veiculo,"pequeno","medio","grande","moto","taxa","horasemtaxa").pack()
@@ -32,7 +32,7 @@ def alterapreco(janela):
 def teladecadastro(janela):
 	janela.destroy()
 	cadastro= tk.Tk()
-	cadastro.geometry("700x500")
+	cadastro.geometry("900x700")
 	cadastro.title("Cadastrar Usuário")
 	cadastro["bg"]= "white"
 	titulo= tk.Label(cadastro,text= "Cadastro De Usuarios",foreground="blue",	background= "white").pack()
@@ -55,7 +55,7 @@ def configuracoes(janela):
 	config = tk.Tk()
 	config.title("Configuracoes")
 	config["bg"]= "white"
-	config.geometry("700x500")  
+	config.geometry("900x700")  
 	inicio=tk.Label(config,text= "Configurações",     foreground= "#0000ff", 	background= "white").pack()
 	bg= tk.PhotoImage(master=config,file= "Asset/polo.png")
 	carromain=tk.Label(config,image= bg,    	background="white").pack()

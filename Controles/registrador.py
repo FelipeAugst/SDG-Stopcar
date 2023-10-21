@@ -19,7 +19,7 @@ def entrada(nome= None,placa=None,data="",hora= "" ,veiculo= None):
   Cadastro[nome]['veiculo']= veiculo
   Cadastro[nome]['datasaida']= '-'
   Cadastro[nome]['horasaida'] = '-'
-  Cadastro[nome]['preço']= 0.0
+  Cadastro[nome]['preco']= 0.0
   Cadastro[nome]['vaga']= vagas.ocupavaga(veiculo)
   with open("Databases/relatorio.json","w") as outfile:
        json.dump(Cadastro,outfile)
@@ -34,8 +34,8 @@ def saida(nome:str,placa:str,data:str,hora:str):
   	return messagebox.showwarning(title="Erro",message= "Cliente inexistetente/Informe corretamente os dados")
   registros[nome]['datasaida']= data
   registros[nome]['horasaida']= hora
-  registros[nome]['preço']= vagas.calculapreco(registros[nome]['veiculo'],registros[nome]['dataentrada'],registros[nome]['horaentrada'],data,hora) 
-  if registros[nome]['preço']== 0:
+  registros[nome]['preco']= vagas.calculapreco(registros[nome]['veiculo'],registros[nome]['dataentrada'],registros[nome]['horaentrada'],data,hora) 
+  if registros[nome]['preco']== 0:
   	return 0
   vagas.liberavaga(registros[nome]['vaga'],registros[nome]['veiculo'] )
   with open("Databases/relatorio.json","w") as outfile:

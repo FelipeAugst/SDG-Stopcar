@@ -12,8 +12,8 @@ def regentrada(janela):
   janelain= tk.Tk()
   veiculo = tk.StringVar(janelain)
   janelain.title("Registrar Entrada")
-  janelain.geometry("700x500")
-  im= tk.PhotoImage(file= "reg.png",master= janelain)
+  janelain.geometry("900x700")
+  im= tk.PhotoImage(file= "Asset/reg.png",master= janelain)
   foto= tk.Label(janelain,image=im).pack()
   texto1= tk.Label(janelain,text="Digite  o nome do cliente",foreground="blue").pack()
   entradacliente= tk.Entry(janelain)
@@ -28,11 +28,9 @@ def regentrada(janela):
   entradahorario = tk.Entry(janelain)
   entradahorario.pack()
   veiculos= tk.OptionMenu(janelain,veiculo,"pequeno","medio","grande","moto").pack()
-
   confirm = tk.Button(janelain, text="Confirmar", background="#8c0000", foreground="white",command= lambda: registrador.entrada(  entradacliente.get(),
   entradaplaca.get(),entradadata.get(),
- entradahorario.get(),veiculo.get()) )
-  confirm.pack()
+ entradahorario.get(),veiculo.get()) ).pack()
   voltar= tk.Button(janelain,text="Voltar", bg="white",foreground= "blue",command= lambda: menuprincipal.menu(janelain)).pack()
   janelain.mainloop()
 
@@ -42,8 +40,8 @@ def regsaida(janela):
   janelain= tk.Tk()
   veiculo = tk.StringVar(janelain)
   janelain.title("Registrar Saida")
-  janelain.geometry("700x500")
-  im= tk.PhotoImage(file= "reg.png",master= janelain)
+  janelain.geometry("900x700")
+  im= tk.PhotoImage(file= "Asset/reg.png",master= janelain)
   foto= tk.Label(janelain,image=im).pack()
   texto1= tk.Label(janelain,text="Digite  o nome do cliente",foreground="blue").pack()
   saidacliente= tk.Entry(janelain)

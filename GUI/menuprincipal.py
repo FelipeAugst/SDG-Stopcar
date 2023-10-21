@@ -1,13 +1,14 @@
 import tkinter as tk
 from GUI import menuregistrar, menuadm,login
-from tkinter import messagebox
+from tkinter import messagebox,Text
+import json
 
 def menu(janela):
  janela.destroy()
  menuprincipal= tk.Tk()
  menuprincipal.title("SDG-Menu Principal")
  menuprincipal["bg"]= "white"
- menuprincipal.geometry("700x500")
+ menuprincipal.geometry("900x700")
  tk.Label(menuprincipal,text= "Seja bem-vindo(a)! Escolha uma opção: ",foreground= "#7c0000",background= "white").pack()
  bg= tk.PhotoImage(file= "Asset/mainrd.png")
  carromain=tk.Label(menuprincipal,image= bg,background="white").pack()
@@ -21,17 +22,24 @@ def menu(janela):
 
 
 def mostrarclientes(janela):
+	line= 1.0
 	janela.destroy()
 	mostrar= tk.Tk()
-	mostrar.geometry("700x500")
+	mostrar.geometry("900x700")
 	mostrar.title("Clientes Cadastrados")
-	with open("relatorio.json","r") as relatorios:
+	with open("Databases/relatorio.json","r") as relatorios:
 		variaveljson= relatorios.read()
 		registros= json.loads(variaveljson)
-		texto= tk.Label(mostrar,text= registros,background= "white",     foreground= "blue")
-		t=tk.Text(mostrar,height=300,width= 300,bg= "white",fg= "blue")
-		t.pack()
-		texto.pack
-		t.insert(tk.END,registros)
-		voltar= tk.Button(mostrarclientes,text="Voltar", bg="white",foreground= "blue",command= lambda: menu(mostrar)).pack()
-		mostrar.mainloop()
+		t=Text(mostrar,height=350,width= 350,bg= "white",fg= "blue")
+		for key,value in registros.items():
+			t.insert(tk.END,
+			"Nome:"+key+"\n",
+			"Placa:"+value['placa']+"\n",
+			"Data/Hora de Entrada:"+value['dataentrada']+'-'+value['horaentrada']+"\n",
+			"Data/Hora de Saida:"+value['datasaida']+'-'+value['horasaida']+"\n",
+			"Tipo de Veiculo:"+value['veiculo']+
+			"| Preco:"+str(value['preco'])+"\n")
+			print(type(value['dataentrada']),type(key))
+	voltar= tk.Button(mostrar,text="Voltar", bg="white",foreground= "blue",command= lambda: menu(mostrar)).pack()
+	t.pack()
+	mostrar.mainloop()
