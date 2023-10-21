@@ -1,7 +1,7 @@
 import tkinter as tk
 
-import backend
-import teladelogin
+import Controles.registrador as registrador
+from GUI import menuprincipal
 
 
 
@@ -29,11 +29,11 @@ def regentrada(janela):
   entradahorario.pack()
   veiculos= tk.OptionMenu(janelain,veiculo,"pequeno","medio","grande","moto").pack()
 
-  confirm = tk.Button(janelain, text="Confirmar", background="#8c0000", foreground="white",command= lambda: backend.entrada(  entradacliente.get(),
+  confirm = tk.Button(janelain, text="Confirmar", background="#8c0000", foreground="white",command= lambda: registrador.entrada(  entradacliente.get(),
   entradaplaca.get(),entradadata.get(),
  entradahorario.get(),veiculo.get()) )
   confirm.pack()
-  voltar= tk.Button(janelain,text="Voltar", bg="white",foreground= "blue",command= lambda: teladelogin.menu(janelain)).pack()
+  voltar= tk.Button(janelain,text="Voltar", bg="white",foreground= "blue",command= lambda: menuprincipal.menu(janelain)).pack()
   janelain.mainloop()
 
 
@@ -59,11 +59,11 @@ def regsaida(janela):
   saidahorario = tk.Entry(janelain)
   saidahorario.pack()
   saidahorario.insert(0,"")
-  confirm = tk.Button(janelain, text="Confirmar", background="#8c0000", foreground="white",command= lambda: backend.saida(saidacliente.get(),
+  confirm = tk.Button(janelain, text="Confirmar", background="#8c0000", foreground="white",command= lambda: registrador.saida(saidacliente.get(),
   saidaplaca.get(),saidadata.get(),
  saidahorario.get()) )
   confirm.pack()
-  voltar= tk.Button(janelain,text="Voltar", bg="white",foreground= "blue",command= lambda: teladelogin.menu(janelain)).pack()
+  voltar= tk.Button(janelain,text="Voltar", bg="white",foreground= "blue",command= lambda: menuprincipal.menu(janelain)).pack()
   janelain.mainloop()
 
 

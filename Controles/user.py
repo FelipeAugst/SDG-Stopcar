@@ -3,7 +3,7 @@ from tkinter import messagebox
 import json
 
 
-with open("users.json","w") as users:
+with open("databaseusers.json","w") as users:
 	listauser= {}
 	listauser['adm']= {}
 	listauser['colaboradorew']={}

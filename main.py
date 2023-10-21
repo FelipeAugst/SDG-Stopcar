@@ -1,5 +1,4 @@
-import teladelogin
-import menuadm
+from GUI import menuprincipal,login
 import tkinter as tk
 class Inicializador:
 	def __init__(self):
@@ -8,4 +7,4 @@ class Inicializador:
 		del self
 		
 start= Inicializador()
-teladelogin.teladelogin(start)
+login.teladelogin(start)
